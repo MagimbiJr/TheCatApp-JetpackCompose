@@ -12,6 +12,15 @@ private val DarkColorPalette = darkColors(
     secondary = Teal200
 )
 
+private val ColorPalette = lightColors(
+    primary = CharlestonGreen,
+    secondary = OceanGreen,
+    background = MidnightGreenEagleGreen,
+    onBackground = GainsBoro,
+    surface = MidnightGreenEagleGreenLight,
+    onSurface = GainsBoro
+)
+
 private val LightColorPalette = lightColors(
     primary = Purple500,
     primaryVariant = Purple700,
@@ -29,11 +38,7 @@ private val LightColorPalette = lightColors(
 
 @Composable
 fun TheCatTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable () -> Unit) {
-    val colors = if (darkTheme) {
-        DarkColorPalette
-    } else {
-        LightColorPalette
-    }
+    val colors = ColorPalette
 
     MaterialTheme(
         colors = colors,
