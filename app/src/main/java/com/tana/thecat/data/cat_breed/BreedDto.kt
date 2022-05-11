@@ -18,10 +18,10 @@ data class BreedDto(
     @SerializedName("child_friendly")
     val childFriendly: Int,
     @SerializedName("country_code")
-    val countryCode: String,
+    val countryCode: String?,
     @SerializedName("country_codes")
     val countryCodes: String,
-    val description: String,
+    val description: String?,
     @SerializedName("dog_friendly")
     val dogFriendly: Int,
     @SerializedName("energy_level")
@@ -33,15 +33,15 @@ data class BreedDto(
     val healthIssues: Int,
     val hypoallergenic: Int,
     val id: String,
-    val image: Image,
+    val image: Image?,
     val indoor: Int,
     val intelligence: Int,
     val lap: Int,
     @SerializedName("life_span")
     val lifeSpan: String,
-    val name: String,
+    val name: String?,
     val natural: Int,
-    val origin: String,
+    val origin: String?,
     val rare: Int,
     @SerializedName("reference_image_id")
     val referenceImageId: String,

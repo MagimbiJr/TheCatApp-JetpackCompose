@@ -8,6 +8,7 @@ interface TheCatRepository {
 
     fun getCatBreeds(): Flow<Resource<List<Breed>>>
 
-    fun getBreed(breedId: String): Flow<Resource<Breed>>
+    //fun searchBreeds(breedId: String): Flow<Resource<List<Breed>>>
 
+    fun searchBreed(breedId: String): Flow<Resource<List<Breed>>>
 }

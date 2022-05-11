@@ -16,7 +16,7 @@ class TheCatRepositoryImpl @Inject constructor(
     override fun getCatBreeds(): Flow<Resource<List<Breed>>> = flow {
         try {
             emit(Resource.Loading())
-            val breeds = theCatApi.getCatBreeds().catBreedsItem.map { it.toBreed() }
+            val breeds = theCatApi.getCatBreeds().map { it.toBreed() }
             emit(Resource.Success(breeds))
         } catch (e: Exception) {
             emit(Resource.Failure(e.localizedMessage ?: "An unknown error occurred"))
@@ -25,10 +25,21 @@ class TheCatRepositoryImpl @Inject constructor(
         }
     }
 
-    override fun getBreed(breedId: String): Flow<Resource<Breed>> = flow {
+//    override fun searchBreed(breedId: String): Flow<Resource<Breed>> = flow {
+//        try {
+//            val breed = theCatApi.searchBreed(breedId = breedId).toBreed()
+//            emit(Resource.Success(breed))
+//        } catch (e: Exception) {
+//            emit(Resource.Failure(e.localizedMessage ?: "An unknown error occurred"))
+//        } catch (e: HttpException) {
+//            emit(Resource.Failure(e.localizedMessage ?: "An unknown http error occurred"))
+//        }
+//    }
+
+    override fun searchBreed(breedId: String): Flow<Resource<List<Breed>>> = flow {
         try {
-            val breed = theCatApi.getBreed(breedId = breedId).toBreed()
-            emit(Resource.Success(breed))
+            val breeds = theCatApi.searchBreed(breedId = breedId).map { it.toBreed() }
+            emit(Resource.Success(breeds))
         } catch (e: Exception) {
             emit(Resource.Failure(e.localizedMessage ?: "An unknown error occurred"))
         } catch (e: HttpException) {
